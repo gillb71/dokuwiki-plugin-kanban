@@ -1,0 +1,132 @@
+/* Container for the whole board */
+.kanban-board {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    background-color: #f4f5f7;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* Individual Workflow Columns */
+.kanban-col {
+    background-color: #ebecf0;
+    border-radius: 5px;
+	/* width: 25%; */
+    width: 360px;
+    min-width: 360px;
+    padding: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.kanban-col h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #172b4d;
+}
+
+/* Card Styling */
+.kanban-card {
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
+    margin-bottom: 8px;
+    padding: 10px;
+    cursor: grab;
+	
+}
+
+/* Tripple Lines Container Setup */
+.triple-lines {
+  width: 100%;
+  height: 20px;
+  /* Creates 3 lines by repeating a gradient pattern */
+  background: linear-gradient(
+    to bottom,
+    #333 2px, transparent 2px,
+    transparent 6px, #333 8px, transparent 8px,
+    transparent 12px, #333 14px, transparent 14px
+  );
+}
+
+.is-dragging {
+	 /* Increase size by 10% */
+	transform: scale(1.1); 
+	/* Increase shadow blur and spread to simulate "lifting" */
+	box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3); 
+    /* Smooth the transition when the drag starts */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0.9 !important;
+    cursor: grabbing !important;
+	transform: rotate(5deg);
+	
+}
+
+.is-left-dragging {
+	 /* Increase size by 10% */
+	transform: scale(1.1); 
+	/* Increase shadow blur and spread to simulate "lifting" */
+	box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3); 
+    /* Smooth the transition when the drag starts */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0.9 !important;
+    cursor: grabbing !important;
+	transform: rotate(-5deg);
+	
+}
+
+.kanban-card label{
+	color:black;
+}
+
+/* Important - Top Placeholder for each card container */
+.kanban-card-locked{
+	opacity:0.9;
+	pointer-events:none;
+	cursor:default;
+	background-color:#ebecf0;
+	box-shadow:0 0 0;
+}
+
+/* Class applied when dragging */
+.card.dragging {
+  transform: rotate(5deg); /* Or rotateY(10deg) for 3D flip */
+}
+
+/* Ensure contents don't interfere with mouse events */
+.card * {
+  pointer-events: none;
+}
+
+/* Importance Rating Colors */
+.kanban-card.high { border-left: 5px solid #eb5a46; }
+.kanban-card.medium { border-left: 5px solid #f2d600;}
+.kanban-card.low { border-left: 5px solid #61bd4f; }
+
+.card{
+	/* Optional: Enables 3D perspective for better visuals */
+	/* perspective: 1000px; */ 
+	transition: transform 0.5s ease;
+	transform-origin: center;
+}
+/* Card Formatting */
+.card-desc {
+	font-size:12px; 
+	color:black;
+	}
+.card-title {
+	font-size:14px;
+	color:black;
+	}
+.card-note {
+	font-size:10px;
+	color:black;
+	}	
+
+/* Drag and Drop Placeholder */
+.ui-sortable-placeholder {
+    visibility: visible !important;
+    background: rgba(0,0,0,0.05);
+    border: 2px dashed #ccc;
+    height: 50px;
+}

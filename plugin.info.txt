@@ -1,0 +1,7 @@
+base   kanban
+author Gill Balderas
+email  gill@mudmajesty.com
+date   2025-10-20
+name   Kanban Board Plugin
+desc   A kanban card, Trello like, drag-and-drop workflow board for DokuWiki.
+url    https://www.dokuwiki.org/plugin:kanban
