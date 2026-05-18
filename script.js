@@ -15,7 +15,7 @@ jQuery(function() {
             importance: $card.attr('class').split(' ').filter(c => ['high','medium','low'].includes(c))[0] || 'medium',
             desc: $card.find('.card-desc').text(),
 			note: $card.find('.card-note').text(),
-			checked: $card.find('.checkbox-inline').prop('checked')
+			checked: $card.find('.checkbox-inline').is(':checked')
         }).done(function(res){ console.log("Saved:", res); });
     }
 
@@ -85,7 +85,6 @@ jQuery(function() {
         var imp = (prompt("Importance (high, medium, low):", "medium") || "medium").toLowerCase();
         var cardId = "c" + Date.now();
 		var note = "There are no notes on this card yet.";
-        var checked = "";
         var $newCard = jQuery(`
             <div class="kanban-card ${imp}" data-id="${cardId}">
 				<input class="checkbox-inline" type="checkbox">			

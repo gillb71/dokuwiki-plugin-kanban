@@ -28,11 +28,11 @@ public function handle_ajax(Doku_Event $event, $param) {
     global $INPUT, $conf;
     $board  = $INPUT->str('board');
     $cardId = $INPUT->str('card_id');
-	$checkedval = $INPUT->str('checked');
+	//$checkedval = $INPUT->str('checked');
 	
-	if($checkedval = "" || is_null($checkedval) || !$checkedval){
-		$checkedval = "";
-	}
+	//if($checkedval = "" || is_null($checkedval) || !$checkedval){
+		//$checkedval = "";
+	//}
 	
     // Dynamically build the path in data/kanban/
     $kanbanDir = '../' . '.' .$conf['savedir'] . '/kanban/' . $board . '/'; // added '../' . '.' . in the beginning path otherwise it writes to ./exe/data directory....annoying
@@ -51,8 +51,8 @@ public function handle_ajax(Doku_Event $event, $param) {
     if ($INPUT->has('name'))       $data['name']   = $INPUT->str('name');
     if ($INPUT->has('importance')) $data['importance'] = $INPUT->str('importance');
     if ($INPUT->has('desc'))       $data['desc']   = $INPUT->str('desc');
-	//if ($INPUT->has('checked'))    $data['checked']   = $INPUT->str('checked');
-	if ($INPUT->has('checked'))    $data['checked']   = $checkedval;
+	if ($INPUT->has('checked'))    $data['checked']   = $INPUT->str('checked');
+	//if ($INPUT->has('checked'))    $data['checked']   = $checkedval;
 	if ($INPUT->has('note'))       $data['note']   = $INPUT->str('note');
 
     io_saveFile($file, json_encode($data));
