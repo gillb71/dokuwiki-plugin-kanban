@@ -102,7 +102,7 @@ class syntax_plugin_kanban extends DokuWiki_Syntax_Plugin {
 		//return the card data only if the card has not been checked complete
 		if($dat != "checked"){
         return '<div class="kanban-card '.$imp.'" data-id="'.hsc($card['id']).'">'
-		     . '<input type="checkbox" ' . $dat . '>'
+		     . '<input class="checkbox-inline" type="checkbox" ' . $dat . '>'
              . '<strong class="card-title">'.hsc($card['name']).'</strong><div id="noteDiv" class="noteDiv">Content</div>'
              . '<div class="card-desc">'.hsc($card['desc'] ?? '').'</div>'
              . '<input class="btn-notes" value="+Add Note">'

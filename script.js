@@ -85,10 +85,10 @@ jQuery(function() {
         var imp = (prompt("Importance (high, medium, low):", "medium") || "medium").toLowerCase();
         var cardId = "c" + Date.now();
 		var note = "There are no notes on this card yet.";
-        
+        var checked = "";
         var $newCard = jQuery(`
             <div class="kanban-card ${imp}" data-id="${cardId}">
-				<input type="checkbox">			
+				<input class="checkbox-inline" type="checkbox">			
                 <strong class="card-title">${name}</strong>
                 <div class="card-desc">Click to add description...</div>
 				<div style="color:black;">Refresh for Notes</div>
