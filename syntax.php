@@ -74,7 +74,7 @@ class syntax_plugin_kanban extends DokuWiki_Syntax_Plugin {
 			}//added - 5-8-2026
 			$colVal = ($colVal + 1);//added - 5-8-2026
         }
-        $renderer->doc .= '<div>My name goes here</div></div>';
+        $renderer->doc .= '</div>';
 		
         return true;
     }
