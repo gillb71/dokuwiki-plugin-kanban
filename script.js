@@ -115,6 +115,10 @@ jQuery(function() {
 			//pull the user from php if the interface query fails
 			userlogin = JSINFO['plugin_do_user'];
 		}
+		if (userlogin == 'undefined'){
+			//add a guest tag if userlogin information is blank.
+			userlogin = "guest user";
+		}
 		//return currentNote + " | " + note;
 		if(mynote !== null){
 			//Sanitize the input
